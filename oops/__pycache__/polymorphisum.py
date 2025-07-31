@@ -6,7 +6,9 @@ class Shape(ABC):
         pass
 class Circle(Shape):
     def __init__(self,radius):
-        
+        self.radius = radius
+    def area(self):
+        return 3.14*self.radius**2
 class Trianlge(Shape):
     def __init__(self,base,height):
         self.base = base
@@ -20,7 +22,13 @@ class Square(Shape):
         self.width = width
     def area(self):
         return self.width**2
+class Pizza(Circle):
+    def __init__(self,toping,radius):
+        super().__init__(radius)
+        self.poping = toping
+    
+        
 
-shapes= [Circle(5),Square(5),Trianlge(3,4)]
+shapes= [Circle(5),Square(5),Trianlge(3,4),Pizza("pepper chiken",3)]
 for shape in shapes:
     print(shape.area())
